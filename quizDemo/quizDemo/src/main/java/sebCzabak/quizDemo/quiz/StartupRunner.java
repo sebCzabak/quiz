@@ -6,6 +6,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import sebCzabak.quizDemo.model.PlayerEntity;
 import sebCzabak.quizDemo.repositories.PlayerRepository;
+import sebCzabak.quizDemo.services.QuizDataService;
 
 
 import java.util.List;
@@ -16,6 +17,8 @@ public class StartupRunner implements CommandLineRunner {
 
     @Autowired
     private PlayerRepository playerRepository;
+    @Autowired
+    private QuizDataService quizDataService;
 
     @Override
     public void run(String...args) throws Exception {
@@ -29,5 +32,8 @@ public class StartupRunner implements CommandLineRunner {
         for (PlayerEntity player : playersFromDatabase) {
             log.info("Retrieved player: " + player);
         }
+        quizDataService.getQuizCategories();
+        quizDataService.getQuizQuestions();
+
     }
 }
