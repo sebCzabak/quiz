@@ -4,6 +4,7 @@ import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+import sebCzabak.quizDemo.Frontend.GameOptions;
 import sebCzabak.quizDemo.model.PlayerEntity;
 import sebCzabak.quizDemo.repositories.PlayerRepository;
 import sebCzabak.quizDemo.services.QuizDataService;
@@ -19,6 +20,8 @@ public class StartupRunner implements CommandLineRunner {
     private PlayerRepository playerRepository;
     @Autowired
     private QuizDataService quizDataService;
+    @Autowired
+    private GameOptions gameOptions;
 
     @Override
     public void run(String...args) throws Exception {
@@ -33,7 +36,7 @@ public class StartupRunner implements CommandLineRunner {
             log.info("Retrieved player: " + player);
         }
         quizDataService.getQuizCategories();
-        quizDataService.getQuizQuestions();
+      //  quizDataService.getQuizQuestions(gameOptions);
 
     }
 }
