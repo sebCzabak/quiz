@@ -36,7 +36,7 @@ public class StartupRunner implements CommandLineRunner {
             log.info("Retrieved player: " + player);
         }
         quizDataService.getQuizCategories();
-      //  quizDataService.getQuizQuestions(gameOptions);
+
 
     }
 }
